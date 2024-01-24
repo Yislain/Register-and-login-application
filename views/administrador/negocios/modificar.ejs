@@ -1,0 +1,58 @@
+<%- include("../../templates/encabezado") %>
+<%- include("../../templates/menuadmin") %>
+
+<div class="container mt-5">
+    <form action="/editarnegocioadmin" method="post" enctype="multipart/form-data">
+        <div class="card mt-5">
+            <div class="card-header">
+                <h1>Modificar Negocio</h1>
+            </div>
+            <div class="card-body">
+                <input type="hidden" name="id" id="id" value="<%= negocio.id %>">
+                <input type="hidden" name="fotoAnterior" id="fotoAnterior" value="<%= negocio.foto %>">
+                <input type="hidden" name="userid" id="userid" value="<%= negocio.userid %>">
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input class="form-control" type="text" value="<%= negocio.nombre %>" name="nombre" id="nombre" placeholder="Nombre" autofocus>
+                </div>
+                
+                <div class="form-group">
+                    <label for="desc">Descripción:</label>
+                    <input class="form-control" type="text" value="<%= negocio.desc %>" name="desc" id="desc" placeholder="Descripción">
+                </div>
+                
+                <div class="form-group">
+                    <label for="gen">Género:</label>
+                    <input class="form-control" type="text" value="<%= negocio.gen %>" name="gen" id="gen" placeholder="Género">
+                </div>
+                
+                <div class="form-group">
+                    <label for="prec">Precio:</label>
+                    <input class="form-control" type="text" value="<%= negocio.prec %>" name="prec" id="prec" placeholder="Precio">
+                </div>
+                
+                <div class="form-group">
+                    <label for="plat">Plataforma:</label>
+                    <input class="form-control" type="text" value="<%= negocio.plat %>" name="plat" id="plat" placeholder="Plataforma">
+                </div>
+                
+                <div class="form-group">
+                    <img src="/Negocios/images/<%= negocio.foto %>" alt="Foto del negocio" width="100px">
+                    <div><%= negocio.foto %></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="foto">Seleccionar nueva foto:</label>
+                    <input class="form-control" type="file" name="foto" id="foto">
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary mb-3" type="submit">Editar Negocio</button>
+                <button class="btn btn-secondary mb-3" type="reset">Limpiar campos</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<%- include("../../templates/pie") %>

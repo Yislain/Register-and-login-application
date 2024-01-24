@@ -1,0 +1,52 @@
+<%- include("../templates/encabezado") %>
+<%- include("../templates/menu") %>
+
+<style>
+    body {
+        background-image: url('/Negocios/images/<%= negocio.foto %>');
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+</style>
+
+<div class="container mt-5">
+    <form action="/editarnegocio" method="post" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                <h1>Modificar Compra</h1>
+            </div>
+            <div class="card-body">
+                <input type="hidden" name="id" id="id" value="<%= negocio.id %>">
+                <input type="hidden" name="fotoAnterior" id="fotoAnterior" value="<%= negocio.identificacion %>">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Titulo:</label>
+                    <input class="form-control" type="text" value="<%= negocio.titulo %>" name="titulo" id="titulo" placeholder="Titulo del videojuego" autofocus>
+                </div>
+                <div class="mb-3">
+                    <label for="desc" class="form-label">Método de pago:</label>
+                    <input class="form-control" type="text" value="<%= negocio.metodopago %>" name="metodopago" id="metodopago" placeholder="Método de pago">
+                </div>
+                <div class="mb-3">
+                    <label for="ubi" class="form-label">Correo electrónico:</label>
+                    <input class="form-control" type="text" value="<%= negocio.correo %>" name="correo" id="correo" placeholder="Correo electrónico">
+                </div>
+                <div class="mb-3">
+                    <label for="foto" class="form-label">Identificación Actual:</label>
+                    <div>
+                        <img src="/Negocios/images/<%= negocio.identificacion %>" alt="" width="100px">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="foto" class="form-label">Cambiar Identificación:</label>
+                    <input class="form-control" type="file" name="identificacion" id="identificacion">
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary" type="submit">Editar Compra</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<%- include("../templates/pie") %>

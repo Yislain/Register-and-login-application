@@ -1,0 +1,46 @@
+<%- include("../templates/encabezado") %>
+<%- include("../templates/menu") %>
+
+  <div class="container">
+    <div class="card mt-5">
+        <div.card-header class="card-header">
+            <h1>Compras realizadas</h1>
+        </div.card-header>
+        <div.card-body class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titulo</th>
+                        <th>Correo</th>
+                        <th>Método de pago</th>
+                        <th>Identificacion</th>
+                        <th>Editar/Borrar</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <%
+                negocios.forEach((negocio,i)=>{
+                %>
+                    <tr>
+                        <td><%= i+1%></td>
+                        <td><%= negocio.titulo%></td>
+                        <td><%= negocio.correo%></td>
+                        <td><%= negocio.metodopago%></td>
+                        <td> <img src="/Negocios/images/<%= negocio.identificacion%>" width="100px"></td> 
+                        <td>
+                            <a href="/modificarnegocio/<%= user.id %>/<%= negocio.id%>" >Editar</a>
+                            <a href="/borrarnegocio/<%= negocio.id %>" >Eliminar</a>
+                        </td>
+                    </tr>
+                    <%
+                });
+                %>
+                </tbody>
+            </table>
+        </div.card-body>
+    </div>
+</div>
+
+
+<%- include ("../templates/pie") %>

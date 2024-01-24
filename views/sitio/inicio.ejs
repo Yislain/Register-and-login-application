@@ -1,0 +1,55 @@
+<%- include("../templates/encabezado") %>
+<%- include("../templates/menu") %>
+
+<main>
+  <!DOCTYPE html>
+  <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>Bienvenido</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.min.css">
+      <style>
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          margin: 0;
+        }
+
+        .card {
+          width: 300px;
+          text-align: center;
+          background-color: #f0f0f0; /* Color de fondo futurista */
+          border: 1px solid #ddd; /* Borde minimalista */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra minimalista */
+        }
+
+        .card-body {
+          padding: 20px;
+        }
+
+        h3 {
+          color: #333; /* Color del texto */
+        }
+
+        p {
+          color: #666; /* Color del texto secundario */
+        }
+      </style>
+    </head>
+    
+    <body>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">¡Bienvenido Usuario!</h3>
+          <p class="card-text">
+            Gracias por iniciar sesión. Has accedido correctamente a tu cuenta.  
+          </p>
+        </div>
+      </div>
+    </body>
+  </html>
+</main>
+
+<%- include("../templates/pie") %>

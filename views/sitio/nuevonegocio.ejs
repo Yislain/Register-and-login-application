@@ -1,0 +1,57 @@
+<%- include("../templates/encabezado")%>
+<%- include("../templates/menu")%>
+
+<style>
+    body {
+    background-image: url('');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* Ajusta otros estilos según sea necesario */
+}
+</style>
+<div class="container mt-5">
+    <form action="/nuevosnegocios/<%=user.id%>" method="post" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h1 class="text-center">Comprar</h1>
+            </div>
+            <div class="card-body">
+                <input type="hidden" name="idUsuario" value="<%= user.id%>">
+
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Titulo que deseas adquirir</label>
+                    <input class="form-control" type="text" name="titulo" id="titulo" placeholder="Nombre del videojuego" autofocus required>
+                    <div class="invalid-feedback">Por favor, indica el titulo del videojuego a adquirir</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="ubi" class="form-label">Método de pago</label>
+                    <input class="form-control" type="text" name="metodopago" id="metodopago" placeholder="Ej. Tarjeta Crédito/Débito" required>
+                    <div class="invalid-feedback">Por favor, indica el método con el que deseas pagar</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="desc" class="form-label">Correo Electrónico</label>
+                    <p style="color: red;">Indica un correo eléctronico donde se enviará el comprobante de pago</p>
+                    <input class="form-control" type="text" name="correo" id="correo" placeholder="ejemplo@dominio.com" required>
+                    <div class="invalid-feedback">Por favor, ingresa un Correo Electrónico</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="foto" class="form-label">Identificación Oficial</label>
+                    <p style="color: red;">Sube una foto legible de tu Identificación Oficial o en caso de ser menor de edad la de uno de tus tutores</p>
+                    <input class="form-control" type="file" name="identificacion" id="identificacion" required>
+                    <div class="invalid-feedback">Por favor, Sube la foto de tu Identificación Oficial</div>
+                </div>
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+                <button class="btn btn-primary me-2" type="submit">Comprar</button>
+                <button class="btn btn-secondary" type="reset">Limpiar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<%- include("../templates/pie")%>
